@@ -1,20 +1,43 @@
 package calculadora;
 
 public class TesteCalculadora {
-
+    /*
+    *Método para teste da calculadora
+    *
+    * Criou-se 4 testes, 1 de cada operador matemático.
+    */
 
     public static void main(String[] args) {
         calculadora calc = new calculadora();
 
+        System.out.println(calc.calcular(2,3,"+"));
+        System.out.println(calc.calcular(10,4,"-"));
+        System.out.println(calc.calcular(3,5,"*")); 
+        System.out.println(calc.calcular(8,2,"/"));
 
-        //Testes rápidos
-        calc.calc(2, 3, "+"); // Esperado: 5
-        calc.calc(10, 4, "-"); // Esperado: 6
-        calc.calc(3, 5, "*"); // Esperado: 15
-        calc.calc(8, 2, "/"); // Esperado: 4
-        calc.calc(8, 0, "/"); // Esperado: divisão por zero
-        calc.calc(5, 5, "x"); // Esperado: operação inválida
-        
+
+
+    /*
+    *Criação do Try Catch para prevenir erros matemáticos na calculadora
+    *
+    * O Try é o teste "Errado" para conferir se está funcionando, e o Catch vai aparecer a mensagem que foi 
+    * demonstrada no código Calculadora.java    
+    * 
+    *  
+    */
+
+        try{
+            System.out.println(calc.calcular(8, 0, "/")); //Exceção
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            System.out.println(calc.calcular(8, 0, "x")); //Exceção
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
-
 }
